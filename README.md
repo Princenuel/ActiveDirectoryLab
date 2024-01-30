@@ -5,49 +5,102 @@
 --!>
 
 <h2>Description</h2>
-Project consists of a simple PowerShell script that walks the user through "zeroing out" (wiping) any drives that are connected to the system. The utility allows you to select the target disk and choose the number of passes that are performed. The PowerShell script will configure a diskpart script file based on the user's selections and then launch Diskpart to perform the disk sanitization.
+In this project, I built a basic Windows networking environment lab with an active directory, DHCP and other networking services using a virtual box and a PowerShell script that automated the creation of 1000 users on the private network. A Domain controller was installed on the virtual machine using the server 2019 ISO and configured by giving it two network adaptors one for the internal network and the other for the internet, I installed the active directory where my domain (practicelab.com) was created and configured with NAT and Routing so that clients on the private network can reach the internet through the Domain Controller, and then the DHCP, which will automatically assign an IP to the windows 10 client.
+I have provided relevant screenshots that capture the steps I took in this project.
 <br />
 
 
 <h2>Languages and Utilities Used</h2>
 
 - <b>PowerShell</b> 
-- <b>Diskpart</b>
+
 
 <h2>Environments Used </h2>
 
-- <b>Windows 10</b> (21H2)
+- <b>Windows 10 IS0 </b> (21H2)
+<br />
+- <b>Oracle Virtual Box</b> (21H2)
+<br />
+- <b>Server 2019 IS0</b> (21H2)
+
+
+
+
+
 
 <h2>Program walk-through:</h2>
 
 <p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+The Diagram schema of what we want to do: <br/>
+<img src="https://i.imgur.com/ZcZHACo.png" height="80%" width="80%" alt="Schema Diagram"/>
 <br />
+
+
 <br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+The Virtual Box and Domain Comptroller installed (Server 2019 ISO):  <br/>
+<img src="https://i.imgur.com/bX82w1m.png" height="80%" width="80%" alt="Domain comptroller installation Step"/>
 <br />
+
+
 <br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Setting up IP for our internal network:  <br/>
+<img src="https://i.imgur.com/daTLkFX.png" height="80%" width="80%" alt="Dsetting up internal IP"/>
 <br />
+
+
 <br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Installing Active Directory in the Domain Comptroller: <br/>
+<img src="https://i.imgur.com/VOzXEaD.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
+
 <br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Configuring Active Directory:  <br/>
+<img src="https://i.imgur.com/uk1NBOJ.png" height="80%" width="80%" alt="server configuration"/>
 <br />
+
+
 <br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Creating Organisational Units (practiselab.com):  <br/>
+<img src="https://i.imgur.com/8Iy1ogE.png" height="80%" width="80%" alt="organisational configuration"/>
 <br />
+
+
 <br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+Configuring DHCP:  <br/>
+<img src="https://i.imgur.com/lMIaZgP.png" height="80%" width="80%" alt="server configuration"/>
+<br />
+
+<br />
+Creating over 1000 users:  <br/>
+<img src="https://i.imgur.com/Eym5xBM.png" height="80%" width="80%" alt="server configuration"/>
+<br />
+
+
+<br />
+1000 users created in Active Directory:  <br/>
+<img src="https://i.imgur.com/0y7Yv15.png" height="80%" width="80%" alt="server configuration"/>
+<br />
+
+
+
+<br />
+Windows 10 client installed and configured properly, note that the gateway IP is same IP with the DHCP Server, so to access the internet this client has to go throught the Domain Comproller where we have the DHCP server :  <br/>
+<img src="https://i.imgur.com/hkKLAq1.png" height="80%" width="80%" alt="Clients connects to internet via DHCP"/>
+<br />
+
+
+<br />
+Domain Controller (practicelab.com) works fine and responds as seen below:  <br/>
+<img src="https://i.imgur.com/LXNKq8o.png" height="80%" width="80%" alt="Active Directory Steps"/>
+<br />
+
+
+<br />
+Windows 10 Client also connects and responds to the internet:  <br/>
+<img src="https://i.imgur.com/W5RrsUX.png" height="80%" width="80%" alt="Active Directory Steps"/>
+<br />
+
+
 
 <!--
  ```diff
